@@ -1,0 +1,20 @@
+.detail-card {
+  width: 180px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  font-family: sans-serif;
+}
+
+.detail-title {
+  margin: 0;
+  color: #777;
+}
+
+.detail-value {
+  margin-top: 8px;
+  color: #6b4ce6;
+  font-size: 22px;
+}
