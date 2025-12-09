@@ -18,6 +18,10 @@
   height: 84vh;
 }
 
+.small-grid{
+  height: 14rem;
+}
+
 .forecast-row {
   display: flex;
   width: 92vw;
