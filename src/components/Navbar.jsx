@@ -1,8 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../style/navbar.css";
+import { useState } from "react";
 
-export default function Navbar({ setQuery }) {
+export default function Navbar({ onSearch }) {
+  const [text, setText] = useState("");
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onSearch(text)
+    }
+  }
   return (
     <nav className="navbar">
       <div className="logo">
@@ -12,7 +20,8 @@ export default function Navbar({ setQuery }) {
         <input
           type="text"
           placeholder="Search Your Country"
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
           className="input"
         />
         <FontAwesomeIcon icon={faSearch} />

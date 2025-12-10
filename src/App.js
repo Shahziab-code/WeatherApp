@@ -18,7 +18,7 @@ function App() {
       setIsLoading(true);
       try {
         const res = await fetch(
-          "https://api.weatherapi.com/v1/current.json?key=394b4962595a420b9f2140027250612&q=Pakistan"
+          `https://api.weatherapi.com/v1/current.json?key=394b4962595a420b9f2140027250612&q=${query}`
         );
         if (!res.ok) throw new Error("Country Not Found");
         const data = await res.json();
@@ -33,13 +33,13 @@ function App() {
       }
     };
 
-    const debounce = setTimeout(fetchWeather, 3000);
+    const debounce = setTimeout(fetchWeather);
     return ()=> clearTimeout(debounce)
   }, [query]);
 
   return (
     <div>
-      <Navbar setQuery={setQuery} />
+      <Navbar onSearch={(value) => setQuery(value)} />
       <Home weatherData={weatherData} isLoading={isLoading} />
     </div>
   );
